@@ -1,5 +1,6 @@
 const User = require("../model/userModel");
 const Chat = require("../model/Chatmodel");
+const bcrypt = require('bcrypt');
 
 //controller for the chat section on submithandler
 
@@ -58,7 +59,7 @@ module.exports.login = async (req, res, next) => {
 
     delete User.password;
 
-    return res.json({ status: true, User });
+    return res.json({ status: true, user1 });
   } catch (err) {
     next(err);
   }

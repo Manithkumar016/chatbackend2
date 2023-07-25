@@ -24,7 +24,7 @@ const corsOptions = {
 
 app.use("/api/auth",UserRoutes)
 
-mongoose.connect("mongodb://127.0.0.1:27017/chat-database",{
+mongoose.connect("mongodb+srv://manithrai3:Ucj1GxOIoFn6nMU0@cluster0.v96jhfs.mongodb.net/chatapp",{
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>{
