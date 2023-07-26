@@ -4,6 +4,7 @@ const express = require("express");
 const cors=require("cors");
 const mongoose=require("mongoose");
 const UserRoutes=require("./routes/UserRoutes");
+const http = require('http');
 
 const app=express();
 require("dotenv").config();
@@ -40,7 +41,7 @@ mongoose.connect("mongodb+srv://manithrai3:Ucj1GxOIoFn6nMU0@cluster0.v96jhfs.mon
 })
 
 
-
-const server=app.listen(process.env.PORT,()=>{
+const server = http.createServer(app);
+server.listen(process.env.PORT,()=>{
     console.log("server started on port :"+process.env.PORT);
 })

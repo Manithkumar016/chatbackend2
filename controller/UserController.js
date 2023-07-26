@@ -24,6 +24,7 @@ module.exports.chat = async (req, res, next) => {
 
 module.exports.register = async (req, res, next) => {
   try {
+    console.log("register called");
     const { username, email, password } = req.body;
     const usernamecheck = await User.findOne({ username });
     if (usernamecheck)
