@@ -41,7 +41,7 @@ mongoose.connect("mongodb+srv://manithrai3:Ucj1GxOIoFn6nMU0@cluster0.v96jhfs.mon
 })
 
 
-const server = http.createServer(app);
-server.listen(process.env.PORT,()=>{
+// const server = http.createServer(app);
+server=app.listen(process.env.PORT,()=>{
     console.log("server started on port :"+process.env.PORT);
 })
