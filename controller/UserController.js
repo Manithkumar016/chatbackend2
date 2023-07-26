@@ -27,6 +27,8 @@ module.exports.register = async (req, res, next) => {
     console.log("register called");
     const { username, email, password } = req.body;
     const usernamecheck = await User.findOne({ username });
+    if (/\s/.test(username))
+      return res.json({ msg: "Spaces are not allowed in username", status: false });
     if (usernamecheck)
       return res.json({ msg: "username is already used", status: false });
     const emailcheck = await User.findOne({ email });
