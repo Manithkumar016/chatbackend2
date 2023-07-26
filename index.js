@@ -14,7 +14,7 @@ require("dotenv").config();
 app.use(express.json());
 
 const corsOptions = {
-    origin: 'http://localhost:3000', // Allow requests from localhost:3000
+    origin: 'https://chat-app-frontend-chi-pearl.vercel.app', // Allow requests from localhost:3000
     optionsSuccessStatus: 200, // Return 200 for successful preflight requests
     credentials: true,
   };
