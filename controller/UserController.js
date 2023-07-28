@@ -1,6 +1,6 @@
 const User = require("../model/userModel");
 const Chat = require("../model/Chatmodel");
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 //controller for the chat section on submithandler
 
@@ -34,11 +34,11 @@ module.exports.register = async (req, res, next) => {
     const emailcheck = await User.findOne({ email });
     if (emailcheck)
       return res.json({ msg: "email is already used", status: false });
-    const hashedpassword = await bcrypt.hash(password, 10);
+    // const hashedpassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       email,
       username,
-      password: hashedpassword,
+      password
     });
 
     delete user.password;
