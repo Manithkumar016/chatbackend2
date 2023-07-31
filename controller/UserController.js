@@ -24,7 +24,6 @@ module.exports.chat = async (req, res, next) => {
 
 module.exports.register = async (req, res, next) => {
   try {
-    console.log("register called");
     const { username, email, password } = req.body;
     const usernamecheck = await User.findOne({ username });
     if (/\s/.test(username))
@@ -56,7 +55,7 @@ module.exports.login = async (req, res, next) => {
     const user1 = await User.findOne({ username });
     if (!user1)
       return res.json({ msg: "incorrect username or password", status: false });
-    const isPassword = await bcrypt.compare(password, user1.password);
+    const isPassword = await compare(password, user1.password);
     if (!isPassword)
       return res.json({ msg: "incorrect username or password", status: false });
 
