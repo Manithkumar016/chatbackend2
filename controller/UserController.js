@@ -55,8 +55,7 @@ module.exports.login = async (req, res, next) => {
     const user1 = await User.findOne({ username });
     if (!user1)
       return res.json({ msg: "incorrect username or password", status: false });
-    const isPassword = await compare(password, user1.password);
-    if (!isPassword)
+    if (password !== user1.password )
       return res.json({ msg: "incorrect username or password", status: false });
 
     delete User.password;
